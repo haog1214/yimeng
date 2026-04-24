@@ -5,7 +5,12 @@
       "Bash(pnpm approve-builds *)",
       "mcp__playwright__browser_navigate",
       "mcp__playwright__browser_take_screenshot",
-      "Bash(pkill -f \"tsx.*server\")"
+      "Bash(pkill -f \"tsx.*server\")",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git branch *)",
+      "Bash(git remote *)"
     ],
     "additionalDirectories": [
       "/Users/hao/Documents/yimeng/client/public"
