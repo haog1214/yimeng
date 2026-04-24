@@ -1,0 +1,76 @@
+- generic [ref=e2]:
+  - region "Notifications alt+T"
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - img "宜盟企業廠房" [ref=e5]
+      - navigation [ref=e6]:
+        - generic [ref=e7]:
+          - img "宜盟 Yi Meng" [ref=e8]
+          - generic [ref=e9]:
+            - link "關於宜盟" [ref=e10] [cursor=pointer]:
+              - /url: "#關於宜盟"
+            - link "代工能力與設備" [ref=e11] [cursor=pointer]:
+              - /url: "#代工能力與設備"
+            - link "服務與品質" [ref=e12] [cursor=pointer]:
+              - /url: "#服務與品質"
+            - link "聯絡我們" [ref=e13] [cursor=pointer]:
+              - /url: "#聯絡我們"
+    - generic [ref=e14]:
+      - img
+      - generic [ref=e16]:
+        - heading "Proactive Integrity Quality" [level=2] [ref=e18]:
+          - text: Proactive
+          - text: Integrity
+          - text: Quality
+        - generic [ref=e19]:
+          - heading "Yi Meng" [level=3] [ref=e20]
+          - paragraph [ref=e21]: 宜盟企業社（前身為豐祥企業社）位於彰化和美，深耕塑膠射出領域逾三十年。秉持「積極、誠信、品質第一」的永續經營理念，不斷提升專業技術與設備，致力於達成客戶的託付。宜盟是您值得信賴的合作夥伴。
+          - paragraph [ref=e22]: 我們專注於高品質的射出代工服務以及電鍍加工與其他後製加工，無論是「少量多樣」或「大量製造」，我們都能靈活滿足您的生產需求，並熟悉泛用塑膠與工程塑膠等多項材質。
+    - generic [ref=e25]:
+      - img "產品應用" [ref=e27]
+      - generic [ref=e28]:
+        - heading "產品應用" [level=3] [ref=e29]
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - img "醫療用品" [ref=e32]
+            - generic [ref=e33]: 醫療用品
+          - generic [ref=e34]:
+            - img "交通器材" [ref=e35]
+            - generic [ref=e36]: 交通器材
+          - generic [ref=e37]:
+            - img "家電用品" [ref=e38]
+            - generic [ref=e39]: 家電用品
+          - generic [ref=e40]:
+            - img "建材管件" [ref=e41]
+            - generic [ref=e42]: 建材管件
+    - generic [ref=e44]:
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - heading "射出成型" [level=3] [ref=e47]
+          - paragraph [ref=e48]: 我們加工的材料種類繁多，包括超級工程塑膠樹脂、玻璃纖維樹脂、彈性體樹脂和通用樹脂。
+          - paragraph [ref=e49]: 此外，我們也提供嵌件注塑和薄壁注塑服務。
+        - img "射出成型" [ref=e51]
+      - generic:
+        - img
+      - generic [ref=e52]:
+        - img "超薄模壓成型" [ref=e54]
+        - generic [ref=e55]:
+          - heading "超薄模壓成型" [level=3] [ref=e56]
+          - paragraph [ref=e57]: 我們使用一台注射速度為 1000 毫米/秒的特製注塑機和融入我們獨特技術的精密模具，能夠穩定地批量生產厚度為 0.16 毫米的超薄注塑產品，其厚度與薄膜類似。
+    - generic [ref=e58]:
+      - img [ref=e60]
+      - generic [ref=e62]:
+        - generic [ref=e63]:
+          - heading "聯絡我們" [level=2] [ref=e64]
+          - paragraph [ref=e65]: 我們提供從射出成型模具製造到成型零件加工和二次加工的全方位服務。若在提升您產品的價值、如果您正在考慮生產您已開發的產品，請隨時與我們聯繫。
+          - button "請透過表格與我們聯繫。" [ref=e66] [cursor=pointer]
+        - generic [ref=e67]:
+          - paragraph [ref=e68]: 電話諮詢
+          - paragraph [ref=e69]: 04：1234567
+    - contentinfo [ref=e70]:
+      - generic [ref=e71]:
+        - img "宜盟 Yi Meng" [ref=e72]
+        - paragraph [ref=e73]: 積極、誠信、品質第一
+        - generic [ref=e74]:
+          - paragraph [ref=e75]: 508彰化縣和美鎮福北路106號
+          - paragraph [ref=e76]: 08:30am~18:00pm
