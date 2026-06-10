@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import Reveal from "@/components/Reveal";
 import { Link } from "wouter";
 
 const RED = "#E63946";
@@ -32,6 +33,7 @@ export default function About() {
       <section className="py-16 md:py-32 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
 
+          <Reveal>
           <div className="mb-12">
             <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(32px, 5vw, 58px)", fontWeight: 900, color: RED, letterSpacing: "0.06em", lineHeight: 1 }}>
               YI MENG
@@ -42,7 +44,9 @@ export default function About() {
               <div style={{ width: 40, height: 1.5, backgroundColor: "#d1d1d1" }} />
             </div>
           </div>
+          </Reveal>
 
+          <Reveal delay={100}>
           <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-4">
             宜盟企業社（前身為豐祥企業社）位於彰化和美，深耕塑膠射出領域逾三十年。
           </p>
@@ -54,6 +58,7 @@ export default function About() {
             我們專注於高品質的射出代工服務以及電鍍加工與其他後製加工，
             無論是「少量多樣」或「大量製造」，我們都能靈活滿足您的生產需求。
           </p>
+          </Reveal>
 
           {/* PIQ values */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
@@ -61,8 +66,9 @@ export default function About() {
               { en: "Proactive", zh: "積極", desc: "主動溝通、快速回應，與客戶同步解決問題。" },
               { en: "Integrity", zh: "誠信", desc: "誠實報價、如實交付，建立長久合作關係。" },
               { en: "Quality", zh: "品質第一", desc: "從原料到成品全程管控，確保每件產品達標。" },
-            ].map(({ en, zh, desc }) => (
-              <div key={en} className="flex flex-col items-center p-6 md:p-8 rounded-2xl"
+            ].map(({ en, zh, desc }, i) => (
+              <Reveal key={en} delay={i * 100}>
+              <div className="flex flex-col items-center p-6 md:p-8 rounded-2xl h-full"
                 style={{ background: "#fafafa", border: "1px solid #eee" }}>
                 <div className="text-2xl font-black mb-1" style={{ fontFamily: "'Poppins', sans-serif", color: RED }}>{en[0]}</div>
                 <div className="w-6 h-0.5 mb-4" style={{ backgroundColor: RED }} />
@@ -70,6 +76,7 @@ export default function About() {
                 <p className="text-sm text-gray-500 font-medium mb-2">{zh}</p>
                 <p className="text-sm text-gray-500 leading-relaxed text-center">{desc}</p>
               </div>
+              </Reveal>
             ))}
           </div>
 
@@ -79,14 +86,16 @@ export default function About() {
               { num: "1993", label: "年創立" },
               { num: "30+", label: "年製造經驗" },
               { num: "5", label: "大產品應用領域" },
-            ].map(({ num, label }) => (
-              <div key={label} className="text-center">
+            ].map(({ num, label }, i) => (
+              <Reveal key={label} delay={i * 100}>
+              <div className="text-center">
                 <div className="font-black mb-1"
                   style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(24px, 4vw, 48px)", color: RED }}>
                   {num}
                 </div>
                 <p className="text-gray-500 text-xs md:text-sm tracking-wide">{label}</p>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>

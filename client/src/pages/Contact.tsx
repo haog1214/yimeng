@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
+import Reveal from "@/components/Reveal";
 
 const RED = "#E63946";
 
@@ -98,6 +99,7 @@ export default function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
 
             {/* 左：聯絡卡片 */}
+            <Reveal direction="left">
             <div>
               <span className="text-xs font-bold tracking-widest uppercase block mb-2" style={{ color: RED }}>Get In Touch</span>
               <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4" style={{ fontFamily: "'Poppins', sans-serif" }}>
@@ -109,8 +111,9 @@ export default function Contact() {
               </p>
 
               <div className="flex flex-col gap-5">
-                {CONTACT_ITEMS.map(({ title, en, value, href, svg }) => (
-                  <div key={title} className="flex items-center gap-5 p-5 rounded-2xl border border-gray-100 hover:border-red-100 hover:shadow-sm transition-all duration-200"
+                {CONTACT_ITEMS.map(({ title, en, value, href, svg }, i) => (
+                  <Reveal key={title} delay={i * 70}>
+                  <div className="flex items-center gap-5 p-5 rounded-2xl border border-gray-100 hover:border-red-100 hover:shadow-sm transition-all duration-200"
                     style={{ background: "#fafafa" }}>
                     <div className="flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center"
                       style={{ backgroundColor: "#fff3f3", color: RED }}>
@@ -130,11 +133,14 @@ export default function Contact() {
                       )}
                     </div>
                   </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
+            </Reveal>
 
             {/* 右：地圖 + 補充說明 */}
+            <Reveal direction="right" delay={100}>
             <div className="flex flex-col gap-8">
               {/* Google Map embed */}
               <div className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm h-[260px] md:h-[380px]">
@@ -168,6 +174,7 @@ export default function Contact() {
                 </div>
               </div>
             </div>
+            </Reveal>
 
           </div>
         </div>

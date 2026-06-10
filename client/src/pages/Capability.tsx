@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
+import Reveal from "@/components/Reveal";
 
 const RED = "#E63946";
 
@@ -102,6 +103,7 @@ export default function Capability() {
       <section className="py-16 md:py-28 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <Reveal direction="left">
             <div>
               <SectionLabel en="Injection Molding" zh="射出成型代工" />
               <p className="text-gray-600 leading-relaxed mb-4 text-[16px]">
@@ -125,11 +127,14 @@ export default function Capability() {
                 ))}
               </div>
             </div>
+            </Reveal>
+            <Reveal direction="right" delay={100}>
             <div className="relative md:pr-[15px] md:pb-[15px]">
               <div className="hidden md:block absolute inset-0 rounded-xl" style={{ backgroundColor: RED, transform: "translateY(-3px)" }} />
               <img src="/images/stock-cap-injection.jpg" alt="射出成型"
                 className="block w-full aspect-square object-cover rounded-xl md:translate-x-[15px] md:-translate-y-[15px] relative z-10" />
             </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -137,20 +142,24 @@ export default function Capability() {
       {/* ── 材料與工藝 ── */}
       <section className="py-20 md:py-28" style={{ background: "#f8f8f8" }}>
         <div className="max-w-6xl mx-auto px-6">
+          <Reveal>
           <div className="text-center mb-14">
             <span className="text-xs font-bold tracking-widest uppercase block mb-2" style={{ color: RED }}>Materials & Process</span>
             <h2 className="text-3xl md:text-4xl font-black text-gray-900" style={{ fontFamily: "'Poppins', sans-serif" }}>材料與工藝能力</h2>
             <div className="w-12 h-0.5 mx-auto mt-4" style={{ backgroundColor: RED }} />
           </div>
+          </Reveal>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {MATERIALS.map(({ title, en, desc }) => (
-              <div key={title}
-                className="bg-white rounded-xl p-6 flex flex-col gap-3 border border-gray-100 hover:shadow-md hover:border-red-100 transition-all duration-200">
+            {MATERIALS.map(({ title, en, desc }, i) => (
+              <Reveal key={title} delay={i * 70}>
+              <div
+                className="bg-white rounded-xl p-6 flex flex-col gap-3 border border-gray-100 hover:shadow-md hover:border-red-100 transition-all duration-200 h-full">
                 <div className="w-8 h-0.5" style={{ backgroundColor: RED }} />
                 <h4 className="font-bold text-gray-800 text-[15px]">{title}</h4>
                 <p className="text-[11px] font-medium tracking-wide" style={{ color: RED }}>{en}</p>
                 <p className="text-gray-500 text-[13px] leading-relaxed">{desc}</p>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -160,19 +169,23 @@ export default function Capability() {
       <section className="py-16 md:py-28 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center mb-12 md:mb-20">
+            <Reveal direction="left">
             <div className="relative md:pr-[15px] md:pb-[15px]">
               <div className="hidden md:block absolute inset-0 rounded-xl" style={{ backgroundColor: RED, transform: "translateY(-3px)" }} />
               <img src="/images/stock-cap-postprocess.jpg" alt="後製加工"
                 className="block w-full aspect-square object-cover rounded-xl md:translate-x-[15px] md:-translate-y-[15px] relative z-10" />
             </div>
+            </Reveal>
+            <Reveal direction="right" delay={100}>
             <div>
               <SectionLabel en="Post-Processing" zh="電鍍與後製加工" />
               <p className="text-gray-600 leading-relaxed mb-8 text-[16px]">
                 射出成型後的完整後製加工服務，讓客戶享有從原料到成品的一站式生產流程，大幅縮短交期、降低溝通成本。長年服務汽車零配件、門窗五金、連接器等高規格產業，對外觀精度與表面品質均有嚴格管控。
               </p>
               <div className="flex flex-col gap-4">
-                {FINISHING.map(({ title, en, desc, svg }) => (
-                  <div key={title} className="flex gap-5 items-start p-5 rounded-xl"
+                {FINISHING.map(({ title, en, desc, svg }, i) => (
+                  <Reveal key={title} delay={i * 80}>
+                  <div className="flex gap-5 items-start p-5 rounded-xl"
                     style={{ background: "#fafafa", border: "1px solid #eee" }}>
                     <div className="flex-shrink-0" style={{ color: RED }}>{svg}</div>
                     <div>
@@ -182,9 +195,11 @@ export default function Capability() {
                       <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
                     </div>
                   </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -192,31 +207,39 @@ export default function Capability() {
       {/* ── 設備規模 ── */}
       <section className="py-20 md:py-28" style={{ background: "#f8f8f8" }}>
         <div className="max-w-6xl mx-auto px-6">
+          <Reveal>
           <div className="text-center mb-14">
             <span className="text-xs font-bold tracking-widest uppercase block mb-2" style={{ color: RED }}>Equipment Scale</span>
             <h2 className="text-3xl md:text-4xl font-black text-gray-900" style={{ fontFamily: "'Poppins', sans-serif" }}>設備規模</h2>
             <div className="w-12 h-0.5 mx-auto mt-4" style={{ backgroundColor: RED }} />
           </div>
+          </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <Reveal direction="left">
             <div>
               <p className="text-gray-600 leading-relaxed mb-8 text-[16px]">
                 宜盟廠區擁有多台不同噸數的射出成型機，從小型精密件到大型結構件皆可生產，並持續投入設備更新，以確保生產效率與產品一致性。
               </p>
               <div className="grid grid-cols-2 gap-4">
-                {EQUIPMENT.map(({ label, value, desc }) => (
-                  <div key={label} className="p-5 rounded-xl bg-white border border-gray-100 hover:border-red-100 transition-colors">
+                {EQUIPMENT.map(({ label, value, desc }, i) => (
+                  <Reveal key={label} delay={i * 80}>
+                  <div className="p-5 rounded-xl bg-white border border-gray-100 hover:border-red-100 transition-colors">
                     <p className="text-xs text-gray-400 font-medium mb-1 tracking-wide">{label}</p>
                     <p className="font-black text-[22px] mb-1" style={{ fontFamily: "'Poppins', sans-serif", color: RED }}>{value}</p>
                     <p className="text-gray-400 text-xs">{desc}</p>
                   </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
+            </Reveal>
+            <Reveal direction="right" delay={100}>
             <div className="relative md:pr-[15px] md:pb-[15px]">
               <div className="hidden md:block absolute inset-0 rounded-xl" style={{ backgroundColor: RED, transform: "translateY(-3px)" }} />
               <img src="/images/stock-cap-equipment.jpg" alt="設備"
                 className="block w-full aspect-square object-cover rounded-xl md:translate-x-[15px] md:-translate-y-[15px] relative z-10" />
             </div>
+            </Reveal>
           </div>
 
           {/* Factory banner */}

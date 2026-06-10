@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
+import Reveal from "@/components/Reveal";
 
 const RED = "#E63946";
 
@@ -87,15 +88,6 @@ export default function Home() {
             )}
           </div>
         ))}
-        {/* SINCE 1993 badge */}
-        <div className="absolute top-24 right-6 z-10 flex flex-col items-center justify-center rounded-full border-2 border-yellow-400 bg-black/60 w-20 h-20 md:w-24 md:h-24 text-center">
-          <span className="text-yellow-400 text-[9px] font-bold tracking-widest uppercase leading-tight">專業塑膠射出</span>
-          <span className="text-yellow-400 text-[9px] font-bold tracking-widest uppercase leading-tight">製造專家</span>
-          <div className="w-10 h-px bg-yellow-400/50 my-1" />
-          <span className="text-white text-[10px] font-bold tracking-wider">SINCE</span>
-          <span className="text-yellow-400 text-sm font-black leading-tight">1993</span>
-        </div>
-
         {/* Slide dots */}
         <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-3 z-10">
           {HERO_SLIDES.map((_, i) => (
@@ -115,6 +107,15 @@ export default function Home() {
       {/* Hero spacer — same height as fixed hero */}
       <div className="h-[420px] md:h-[500px]" />
 
+      {/* SINCE 1993 badge — fixed bottom-left */}
+      <div className="fixed bottom-6 left-6 z-50 flex flex-col items-center justify-center rounded-full border-2 border-yellow-400 bg-black/70 w-20 h-20 md:w-24 md:h-24 text-center shadow-lg">
+        <span className="text-yellow-400 text-[8px] md:text-[9px] font-bold tracking-widest uppercase leading-tight">專業塑膠射出</span>
+        <span className="text-yellow-400 text-[8px] md:text-[9px] font-bold tracking-widest uppercase leading-tight">製造專家</span>
+        <div className="w-10 h-px bg-yellow-400/50 my-1" />
+        <span className="text-white text-[9px] md:text-[10px] font-bold tracking-wider">SINCE</span>
+        <span className="text-yellow-400 text-[13px] md:text-sm font-black leading-tight">1993</span>
+      </div>
+
       {/* ── About ── */}
       <section
         id="關於宜盟"
@@ -130,7 +131,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-[1fr_1.6fr] gap-8 md:gap-12 items-center">
 
             {/* Left: PIQ */}
-            <div className="md:translate-x-[60px] md:-translate-y-[100px] relative z-10">
+            <Reveal direction="left" className="md:translate-x-[60px] md:-translate-y-[100px] relative z-10">
               <h2
                 className="font-bold leading-snug text-gray-800"
                 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 3.3vw, 46px)" }}
@@ -139,10 +140,11 @@ export default function Home() {
                 Integrity<br />
                 Quality
               </h2>
-            </div>
+            </Reveal>
 
             {/* Right: company text */}
-            <div className="bg-white rounded-xl p-6 md:p-8 shadow-md relative z-10 md:-translate-x-[15px]">
+            <Reveal direction="right" delay={100} className="relative z-10">
+            <div className="bg-white rounded-xl p-6 md:p-8 shadow-md md:-translate-x-[15px]">
               <h3
                 className="text-2xl font-bold text-gray-800 mb-5"
                 style={{ fontFamily: "'Poppins', sans-serif" }}
@@ -156,6 +158,7 @@ export default function Home() {
                 我們專注於高品質的射出代工服務以及電鍍加工與其他後製加工，無論是「少量多樣」或「大量製造」，我們都能靈活滿足您的生產需求，並熟悉泛用塑膠與工程塑膠等多項材質。
               </p>
             </div>
+            </Reveal>
 
           </div>
         </div>
@@ -173,17 +176,19 @@ export default function Home() {
         }}
       >
         <div className="max-w-6xl mx-auto px-6">
+          <Reveal>
           <h3
             className="text-3xl font-bold text-gray-800 mb-10 text-center"
             style={{ fontFamily: "'Poppins', sans-serif" }}
           >
             產品應用
           </h3>
+          </Reveal>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {PRODUCT_CATEGORIES.map(({ src, label, product }) => (
+            {PRODUCT_CATEGORIES.map(({ src, label, product }, i) => (
+              <Reveal key={label} delay={i * 80}>
               <div
-                key={label}
-                className="group relative border border-gray-800 rounded-lg p-5 md:p-7 flex flex-col items-center gap-3 transition-shadow bg-white overflow-hidden md:overflow-visible hover:z-20"
+                className="group relative border border-gray-800 rounded-lg p-5 md:p-7 flex flex-col items-center gap-3 transition-shadow bg-white overflow-hidden md:overflow-visible hover:z-20 h-full"
               >
                 <img src={src} alt={label} className="w-[60px] h-[60px] object-contain transition-opacity duration-300 group-hover:opacity-0" />
                 <span className="text-sm font-medium text-gray-800 transition-opacity duration-300 group-hover:opacity-0">{label}</span>
@@ -204,6 +209,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -223,6 +229,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 space-y-0">
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-center pb-16">
+            <Reveal direction="left">
             <div>
               <h3
                 className="font-bold text-gray-800 mb-5"
@@ -237,6 +244,8 @@ export default function Home() {
                 此外，我們也提供嵌件注塑和薄壁注塑服務。
               </p>
             </div>
+            </Reveal>
+            <Reveal direction="right" delay={100}>
             <div className="relative md:pr-[15px] md:pb-[15px]">
               <div className="hidden md:block absolute inset-0 rounded-xl" style={{ backgroundColor: '#d7554d', transform: 'translateY(-3px)' }} />
               <img
@@ -245,9 +254,11 @@ export default function Home() {
                 className="block w-full aspect-square object-cover rounded-xl md:translate-x-[27px] md:-translate-y-[15px] relative z-10"
               />
             </div>
+            </Reveal>
           </div>
 
           {/* PROPRIETARY 圖片 */}
+          <Reveal threshold={0.05}>
           <div className="-mx-6 md:-mx-8 lg:-mx-16 xl:-mx-32 pointer-events-none select-none">
             <img
               src="/images/宜盟-10.png"
@@ -256,8 +267,10 @@ export default function Home() {
               className="w-full"
             />
           </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-center pt-16">
+            <Reveal direction="left">
             <div className="relative md:pr-[15px] md:pb-[15px]">
               <div className="hidden md:block absolute inset-0 rounded-xl" style={{ backgroundColor: '#d7554d', transform: 'translateY(-3px)' }} />
               <img
@@ -266,6 +279,8 @@ export default function Home() {
                 className="block w-full aspect-square object-cover rounded-xl md:translate-x-[27px] md:-translate-y-[15px] relative z-10"
               />
             </div>
+            </Reveal>
+            <Reveal direction="right" delay={100}>
             <div>
               <h3
                 className="font-bold text-gray-800 mb-5"
@@ -280,6 +295,7 @@ export default function Home() {
                 長年服務汽車零配件、門窗五金、連接器等高規格產業，對於外觀精度與表面品質均有嚴格管控，確保每一件成品皆符合客戶要求。
               </p>
             </div>
+            </Reveal>
           </div>
 
         </div>
@@ -345,8 +361,9 @@ export default function Home() {
                   </svg>
                 ),
               },
-            ].map(({ svg, title, desc }) => (
-              <div key={title} className="group flex flex-col items-center text-center gap-4 px-3 md:px-8 py-8 md:py-12 hover:bg-white/5 transition-colors duration-300">
+            ].map(({ svg, title, desc }, i) => (
+              <Reveal key={title} delay={i * 80}>
+              <div className="group flex flex-col items-center text-center gap-4 px-3 md:px-8 py-8 md:py-12 hover:bg-white/5 transition-colors duration-300 h-full">
                 <div className="text-white/50 group-hover:text-[#E63946] transition-colors duration-300">
                   {svg}
                 </div>
@@ -354,6 +371,7 @@ export default function Home() {
                 <h4 className="text-white font-semibold text-[16px] tracking-widest">{title}</h4>
                 <p className="text-white/50 text-[13px] leading-relaxed">{desc}</p>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>

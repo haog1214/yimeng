@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
+import Reveal from "@/components/Reveal";
 
 const RED = "#E63946";
 
@@ -135,9 +136,10 @@ export default function Quality() {
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {SERVICE_FEATURES.map(({ title, en, desc, svg }) => (
-              <div key={title}
-                className="group flex flex-col items-center text-center p-5 md:p-8 rounded-2xl border border-gray-100 hover:border-red-100 hover:shadow-lg transition-all duration-300"
+            {SERVICE_FEATURES.map(({ title, en, desc, svg }, i) => (
+              <Reveal key={title} delay={i * 80}>
+              <div
+                className="group flex flex-col items-center text-center p-5 md:p-8 rounded-2xl border border-gray-100 hover:border-red-100 hover:shadow-lg transition-all duration-300 h-full"
                 style={{ background: "#fafafa" }}>
                 <div className="mb-5 transition-colors duration-300 group-hover:text-[#E63946]" style={{ color: "#bbb" }}>
                   {svg}
@@ -147,6 +149,7 @@ export default function Quality() {
                 <p className="text-[11px] font-medium tracking-widest mb-3" style={{ color: RED }}>{en}</p>
                 <p className="text-gray-500 text-[13px] leading-relaxed">{desc}</p>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -156,6 +159,7 @@ export default function Quality() {
       <section className="py-24 md:py-32" style={{ background: "#f8f8f8" }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
+            <Reveal direction="left">
             <div>
               <span className="text-xs font-bold tracking-widest uppercase block mb-2" style={{ color: RED }}>Quality Control</span>
               <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4" style={{ fontFamily: "'Poppins', sans-serif" }}>品質管控流程</h2>
@@ -167,17 +171,21 @@ export default function Quality() {
                 長年服務汽車零配件、電子連接器等高規格產業，具備嚴謹的品質意識與豐富的異常處理經驗。
               </p>
             </div>
+            </Reveal>
+            <Reveal direction="right" delay={100}>
             <div className="relative md:pr-[15px] md:pb-[15px]">
               <div className="hidden md:block absolute inset-0 rounded-xl" style={{ backgroundColor: RED, transform: "translateY(-3px)" }} />
               <img src="/images/stock-quality-section.jpg" alt="品質管控"
                 className="block w-full aspect-square object-cover rounded-xl md:translate-x-[15px] md:-translate-y-[15px] relative z-10" />
             </div>
+            </Reveal>
           </div>
 
           {/* Steps */}
           <div className="flex flex-col gap-4">
-            {QUALITY_STEPS.map(({ step, title, en, desc }) => (
-              <div key={step}
+            {QUALITY_STEPS.map(({ step, title, en, desc }, i) => (
+              <Reveal key={step} delay={i * 70}>
+              <div
                 className="flex gap-6 items-start bg-white rounded-2xl p-6 border border-gray-100 hover:border-red-100 hover:shadow-sm transition-all duration-200">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-black text-white text-sm"
                   style={{ backgroundColor: RED, fontFamily: "'Poppins', sans-serif" }}>
@@ -191,6 +199,7 @@ export default function Quality() {
                   <p className="text-gray-500 text-[14px] leading-relaxed">{desc}</p>
                 </div>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>
