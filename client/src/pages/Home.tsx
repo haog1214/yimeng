@@ -331,20 +331,73 @@ export default function Home() {
       </section>
 
       {/* ── Five Pillars ── */}
-      <section className="relative z-10 bg-gray-900 py-14">
+      <section className="relative z-10 bg-[#0f1420] py-16">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-0 divide-x divide-white/10">
             {[
-              { icon: "⚙️", title: "精密設備", desc: "先進射出成型機台，穩定生產高品質產品" },
-              { icon: "🔧", title: "專業技術", desc: "豐富經驗技術團隊，提供最佳解決方案" },
-              { icon: "✅", title: "品質管控", desc: "嚴格品質檢驗流程，確保產品品質穩定可靠" },
-              { icon: "🌱", title: "環保永續", desc: "採用環保材料，落實企業社會責任" },
-              { icon: "🚚", title: "準時交貨", desc: "高效生產管理，準時交付客戶需求" },
-            ].map(({ icon, title, desc }) => (
-              <div key={title} className="flex flex-col items-center text-center gap-3 p-4">
-                <span className="text-3xl">{icon}</span>
-                <h4 className="text-white font-bold text-[15px] tracking-wide">{title}</h4>
-                <p className="text-gray-400 text-xs leading-relaxed">{desc}</p>
+              {
+                title: "精密設備",
+                desc: "先進射出成型機台，穩定生產高品質產品",
+                svg: (
+                  <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
+                    <circle cx="20" cy="20" r="4" />
+                    <path d="M20 4v4M20 32v4M4 20h4M32 20h4" />
+                    <path d="M8.6 8.6l2.8 2.8M28.6 28.6l2.8 2.8M8.6 31.4l2.8-2.8M28.6 11.4l2.8-2.8" />
+                    <circle cx="20" cy="20" r="10" strokeDasharray="3 2" />
+                  </svg>
+                ),
+              },
+              {
+                title: "專業技術",
+                desc: "豐富經驗技術團隊，提供最佳解決方案",
+                svg: (
+                  <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
+                    <path d="M28 6a6 6 0 0 1 0 8l-3 3-8 8-6 2 2-6 8-8 3-3a6 6 0 0 1 4-4z" />
+                    <path d="M22 10l4 4" />
+                    <path d="M10 28l2 2" />
+                  </svg>
+                ),
+              },
+              {
+                title: "品質管控",
+                desc: "嚴格品質檢驗流程，確保產品品質穩定可靠",
+                svg: (
+                  <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
+                    <path d="M20 4l13 5v9c0 8-5.5 14.5-13 17C13 32.5 7 26 7 18V9z" />
+                    <polyline points="14,20 18,24 26,16" />
+                  </svg>
+                ),
+              },
+              {
+                title: "環保永續",
+                desc: "採用環保材料，落實企業社會責任",
+                svg: (
+                  <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
+                    <path d="M20 34V20" />
+                    <path d="M20 20C20 20 10 18 8 8c6 0 12 4 12 12z" />
+                    <path d="M20 20C20 20 30 16 32 6c-6 0-12 5-12 14z" />
+                    <path d="M14 34h12" />
+                  </svg>
+                ),
+              },
+              {
+                title: "準時交貨",
+                desc: "高效生產管理，準時交付客戶需求",
+                svg: (
+                  <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
+                    <circle cx="20" cy="20" r="14" />
+                    <polyline points="20,10 20,20 27,25" />
+                  </svg>
+                ),
+              },
+            ].map(({ svg, title, desc }) => (
+              <div key={title} className="group flex flex-col items-center text-center gap-4 px-6 py-10 hover:bg-white/5 transition-colors duration-300">
+                <div className="text-white/40 group-hover:text-[#E63946] transition-colors duration-300">
+                  {svg}
+                </div>
+                <div className="w-5 h-px bg-white/20 group-hover:bg-[#E63946] transition-colors duration-300" />
+                <h4 className="text-white font-semibold text-[14px] tracking-widest">{title}</h4>
+                <p className="text-white/40 text-[12px] leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
