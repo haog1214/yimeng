@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
+import Navbar from "@/components/Navbar";
 
 const RED = "#E63946";
 
@@ -41,14 +41,7 @@ const PRODUCT_CATEGORIES = [
 ];
 
 export default function Home() {
-  const [scrolled, setScrolled] = useState(false);
   const [slide, setSlide] = useState(0);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     const t = setInterval(() => setSlide((s) => (s + 1) % HERO_SLIDES.length), 4000);
@@ -58,33 +51,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white font-sans">
 
-      {/* ── Nav — fixed, transparent → white on scroll ── */}
-      <nav
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-        style={{ backgroundColor: scrolled ? "#ffffff" : "transparent", boxShadow: scrolled ? "0 1px 8px rgba(0,0,0,0.08)" : "none" }}
-      >
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <YiMengLogo white={!scrolled} />
-          <div className="hidden md:flex items-center gap-10">
-            <Link href="/about" className="text-sm transition-colors duration-300 tracking-wide"
-              style={{ fontFamily: "'Inter', sans-serif", color: scrolled ? "#374151" : "#ffffff", textShadow: scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)" }}>
-              關於宜盟
-            </Link>
-            <Link href="/capability" className="text-sm transition-colors duration-300 tracking-wide"
-              style={{ fontFamily: "'Inter', sans-serif", color: scrolled ? "#374151" : "#ffffff", textShadow: scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)" }}>
-              代工能力與設備
-            </Link>
-            <Link href="/quality" className="text-sm transition-colors duration-300 tracking-wide"
-              style={{ fontFamily: "'Inter', sans-serif", color: scrolled ? "#374151" : "#ffffff", textShadow: scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)" }}>
-              服務與品質
-            </Link>
-            <Link href="/contact" className="text-sm transition-colors duration-300 tracking-wide"
-              style={{ fontFamily: "'Inter', sans-serif", color: scrolled ? "#374151" : "#ffffff", textShadow: scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)" }}>
-              聯絡我們
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* ── Hero slider — fixed behind content, slides cross-fade ── */}
       <div className="fixed top-0 left-0 right-0 h-[420px] md:h-[500px] z-0 overflow-hidden">
@@ -151,7 +118,7 @@ export default function Home() {
       {/* ── About ── */}
       <section
         id="關於宜盟"
-        className="relative z-10 h-[560px] flex items-center overflow-visible"
+        className="relative z-10 py-16 md:py-0 md:h-[560px] flex items-center overflow-hidden"
         style={{
           backgroundImage: "url('/images/contact-bg-04.jpg')",
           backgroundAttachment: "fixed",
@@ -160,10 +127,10 @@ export default function Home() {
         }}
       >
         <div className="relative w-full max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_1.6fr] gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_1.6fr] gap-8 md:gap-12 items-center">
 
-            {/* Left: PIQ — shifted up 100px and right 60px */}
-            <div style={{ transform: "translate(60px, -100px)", position: "relative", zIndex: 10 }}>
+            {/* Left: PIQ */}
+            <div className="md:translate-x-[60px] md:-translate-y-[100px] relative z-10">
               <h2
                 className="font-bold leading-snug text-gray-800"
                 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 3.3vw, 46px)" }}
@@ -175,7 +142,7 @@ export default function Home() {
             </div>
 
             {/* Right: company text */}
-            <div className="bg-white rounded-xl p-8 shadow-md relative z-10" style={{ transform: "translateX(-15px)" }}>
+            <div className="bg-white rounded-xl p-6 md:p-8 shadow-md relative z-10 md:-translate-x-[15px]">
               <h3
                 className="text-2xl font-bold text-gray-800 mb-5"
                 style={{ fontFamily: "'Poppins', sans-serif" }}
@@ -197,13 +164,12 @@ export default function Home() {
       {/* ── Products ── */}
       <section
         id="代工能力與設備"
-        className="relative z-10 py-20 md:py-28"
+        className="relative z-10 py-16 md:py-28"
         style={{
           backgroundImage: "url('/images/contact-bg-04.jpg')",
           backgroundAttachment: "fixed",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          marginTop: "-100px",
         }}
       >
         <div className="max-w-6xl mx-auto px-6">
@@ -217,7 +183,7 @@ export default function Home() {
             {PRODUCT_CATEGORIES.map(({ src, label, product }) => (
               <div
                 key={label}
-                className="group relative border border-gray-800 rounded-lg p-7 flex flex-col items-center gap-3 transition-shadow bg-white overflow-visible hover:z-20"
+                className="group relative border border-gray-800 rounded-lg p-5 md:p-7 flex flex-col items-center gap-3 transition-shadow bg-white overflow-hidden md:overflow-visible hover:z-20"
               >
                 <img src={src} alt={label} className="w-[60px] h-[60px] object-contain transition-opacity duration-300 group-hover:opacity-0" />
                 <span className="text-sm font-medium text-gray-800 transition-opacity duration-300 group-hover:opacity-0">{label}</span>
@@ -271,13 +237,12 @@ export default function Home() {
                 此外，我們也提供嵌件注塑和薄壁注塑服務。
               </p>
             </div>
-            <div className="relative overflow-visible" style={{ paddingRight: '15px', paddingBottom: '15px' }}>
-              <div className="absolute inset-0 rounded-xl" style={{ backgroundColor: '#d7554d', transform: 'translateY(-3px)' }} />
+            <div className="relative md:pr-[15px] md:pb-[15px]">
+              <div className="hidden md:block absolute inset-0 rounded-xl" style={{ backgroundColor: '#d7554d', transform: 'translateY(-3px)' }} />
               <img
                 src="/images/Injection molding-1.jpg"
                 alt="射出成型"
-                className="block w-full aspect-square object-cover rounded-xl"
-                style={{ transform: 'translate(27px, -15px)', position: 'relative', zIndex: 10 }}
+                className="block w-full aspect-square object-cover rounded-xl md:translate-x-[27px] md:-translate-y-[15px] relative z-10"
               />
             </div>
           </div>
@@ -293,13 +258,12 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-center pt-16">
-            <div className="relative overflow-visible" style={{ paddingRight: '15px', paddingBottom: '15px' }}>
-              <div className="absolute inset-0 rounded-xl" style={{ backgroundColor: '#d7554d', transform: 'translateY(-3px)' }} />
+            <div className="relative md:pr-[15px] md:pb-[15px]">
+              <div className="hidden md:block absolute inset-0 rounded-xl" style={{ backgroundColor: '#d7554d', transform: 'translateY(-3px)' }} />
               <img
                 src="/images/Product-11.jpg"
                 alt="多樣化射出產品"
-                className="block w-full aspect-square object-cover rounded-xl"
-                style={{ transform: 'translate(27px, -15px)', position: 'relative', zIndex: 10 }}
+                className="block w-full aspect-square object-cover rounded-xl md:translate-x-[27px] md:-translate-y-[15px] relative z-10"
               />
             </div>
             <div>
@@ -322,8 +286,8 @@ export default function Home() {
       </section>
 
       {/* ── Five Pillars ── */}
-      <section className="relative z-10 bg-[#2c3444] py-20">
-        <div className="max-w-7xl mx-auto px-8">
+      <section className="relative z-10 bg-[#2c3444] py-12 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-0 divide-x divide-white/10">
             {[
               {
@@ -382,7 +346,7 @@ export default function Home() {
                 ),
               },
             ].map(({ svg, title, desc }) => (
-              <div key={title} className="group flex flex-col items-center text-center gap-5 px-8 py-12 hover:bg-white/5 transition-colors duration-300">
+              <div key={title} className="group flex flex-col items-center text-center gap-4 px-3 md:px-8 py-8 md:py-12 hover:bg-white/5 transition-colors duration-300">
                 <div className="text-white/50 group-hover:text-[#E63946] transition-colors duration-300">
                   {svg}
                 </div>
@@ -416,7 +380,7 @@ export default function Home() {
             {/* 左欄：標題 + 說明 */}
             <div className="flex flex-col gap-6 max-w-md">
               <h2
-                className="text-5xl"
+                className="text-3xl md:text-5xl"
                 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 900 }}
               >
                 聯絡我們
@@ -465,7 +429,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-6">
             <YiMengLogo white />
-            <div className="text-right text-gray-400 leading-relaxed">
+            <div className="text-center md:text-right text-gray-400 leading-relaxed">
               <p
                 className="text-white font-semibold tracking-wider mb-1"
                 style={{ fontFamily: "'Poppins', sans-serif", fontSize: '26px' }}

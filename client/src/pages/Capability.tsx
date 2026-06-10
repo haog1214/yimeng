@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import { Link } from "wouter";
+import Navbar from "@/components/Navbar";
 
 const RED = "#E63946";
 
@@ -73,66 +73,18 @@ function SectionLabel({ en, zh }: { en: string; zh: string }) {
 }
 
 export default function Capability() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <div className="min-h-screen bg-white font-sans">
 
-      {/* ── Nav ── */}
-      <nav
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-        style={{
-          backgroundColor: scrolled ? "#ffffff" : "transparent",
-          boxShadow: scrolled ? "0 1px 8px rgba(0,0,0,0.08)" : "none",
-        }}
-      >
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/">
-            <img
-              src={scrolled ? "/images/Logo2.png" : "/images/Logo.png"}
-              alt="宜盟 Yi Meng"
-              className={scrolled ? "h-[68px] w-auto" : "h-[100px] w-auto"}
-              style={!scrolled ? { filter: "drop-shadow(0 2px 10px rgba(0,0,0,0.9))" } : {}}
-            />
-          </Link>
-          <div className="hidden md:flex items-center gap-10">
-            <Link href="/" className="text-sm transition-colors duration-300 tracking-wide"
-              style={{ fontFamily: "'Inter', sans-serif", color: scrolled ? "#374151" : "#ffffff", textShadow: scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)" }}>
-              首頁
-            </Link>
-            <Link href="/about" className="text-sm transition-colors duration-300 tracking-wide"
-              style={{ fontFamily: "'Inter', sans-serif", color: scrolled ? "#374151" : "#ffffff", textShadow: scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)" }}>
-              關於宜盟
-            </Link>
-            <Link href="/capability" className="text-sm transition-colors duration-300 tracking-wide"
-              style={{ fontFamily: "'Inter', sans-serif", color: scrolled ? RED : "#ffffff", fontWeight: 600, textShadow: scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)" }}>
-              代工能力與設備
-            </Link>
-            <Link href="/quality" className="text-sm transition-colors duration-300 tracking-wide"
-              style={{ fontFamily: "'Inter', sans-serif", color: scrolled ? "#374151" : "#ffffff", textShadow: scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)" }}>
-              服務與品質
-            </Link>
-            <Link href="/contact" className="text-sm transition-colors duration-300 tracking-wide"
-              style={{ fontFamily: "'Inter', sans-serif", color: scrolled ? "#374151" : "#ffffff", textShadow: scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)" }}>
-              聯絡我們
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* ── Hero ── */}
-      <div className="relative overflow-hidden" style={{ height: "520px" }}>
+      <div className="relative overflow-hidden h-[300px] md:h-[520px]">
         <img src="/images/stock-cap-hero.jpg" alt="代工能力與設備"
           className="w-full h-full object-cover object-center" />
         <div className="absolute inset-0"
           style={{ background: "linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 70%, transparent 100%)" }} />
-        <div className="absolute inset-0 flex flex-col justify-end pb-20 pl-12 md:pl-24">
+        <div className="absolute inset-0 flex flex-col justify-end pb-8 md:pb-20 pl-6 md:pl-24">
           <span style={{ color: RED, fontSize: "12px", fontWeight: 700, letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: "12px" }}>
             OEM Capability & Equipment
           </span>
@@ -147,7 +99,7 @@ export default function Capability() {
       </div>
 
       {/* ── 射出成型代工 ── */}
-      <section className="py-24 md:py-32 bg-white">
+      <section className="py-16 md:py-28 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div>
@@ -173,11 +125,10 @@ export default function Capability() {
                 ))}
               </div>
             </div>
-            <div className="relative overflow-visible" style={{ paddingRight: "15px", paddingBottom: "15px" }}>
-              <div className="absolute inset-0 rounded-xl" style={{ backgroundColor: RED, transform: "translateY(-3px)" }} />
+            <div className="relative md:pr-[15px] md:pb-[15px]">
+              <div className="hidden md:block absolute inset-0 rounded-xl" style={{ backgroundColor: RED, transform: "translateY(-3px)" }} />
               <img src="/images/stock-cap-injection.jpg" alt="射出成型"
-                className="block w-full aspect-square object-cover rounded-xl"
-                style={{ transform: "translate(15px, -15px)", position: "relative", zIndex: 10 }} />
+                className="block w-full aspect-square object-cover rounded-xl md:translate-x-[15px] md:-translate-y-[15px] relative z-10" />
             </div>
           </div>
         </div>
@@ -206,14 +157,13 @@ export default function Capability() {
       </section>
 
       {/* ── 後製加工 ── */}
-      <section className="py-24 md:py-32 bg-white">
+      <section className="py-16 md:py-28 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
-            <div className="relative overflow-visible" style={{ paddingRight: "15px", paddingBottom: "15px" }}>
-              <div className="absolute inset-0 rounded-xl" style={{ backgroundColor: RED, transform: "translateY(-3px)" }} />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center mb-12 md:mb-20">
+            <div className="relative md:pr-[15px] md:pb-[15px]">
+              <div className="hidden md:block absolute inset-0 rounded-xl" style={{ backgroundColor: RED, transform: "translateY(-3px)" }} />
               <img src="/images/stock-cap-postprocess.jpg" alt="後製加工"
-                className="block w-full aspect-square object-cover rounded-xl"
-                style={{ transform: "translate(15px, -15px)", position: "relative", zIndex: 10 }} />
+                className="block w-full aspect-square object-cover rounded-xl md:translate-x-[15px] md:-translate-y-[15px] relative z-10" />
             </div>
             <div>
               <SectionLabel en="Post-Processing" zh="電鍍與後製加工" />
@@ -262,11 +212,10 @@ export default function Capability() {
                 ))}
               </div>
             </div>
-            <div className="relative overflow-visible" style={{ paddingRight: "15px", paddingBottom: "15px" }}>
-              <div className="absolute inset-0 rounded-xl" style={{ backgroundColor: RED, transform: "translateY(-3px)" }} />
+            <div className="relative md:pr-[15px] md:pb-[15px]">
+              <div className="hidden md:block absolute inset-0 rounded-xl" style={{ backgroundColor: RED, transform: "translateY(-3px)" }} />
               <img src="/images/stock-cap-equipment.jpg" alt="設備"
-                className="block w-full aspect-square object-cover rounded-xl"
-                style={{ transform: "translate(15px, -15px)", position: "relative", zIndex: 10 }} />
+                className="block w-full aspect-square object-cover rounded-xl md:translate-x-[15px] md:-translate-y-[15px] relative z-10" />
             </div>
           </div>
 
