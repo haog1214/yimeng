@@ -170,12 +170,11 @@ export default function About() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-4 gap-8 pt-16 border-t border-gray-100">
+          <div className="grid grid-cols-3 gap-8 pt-16 border-t border-gray-100">
             {[
               { num: "1993", label: "年創立" },
               { num: "30+", label: "年製造經驗" },
               { num: "5", label: "大產品應用領域" },
-              { num: "一站式", label: "射出到後製服務" },
             ].map(({ num, label }) => (
               <div key={label} className="text-center">
                 <div
