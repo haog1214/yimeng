@@ -193,7 +193,7 @@ export default function About() {
 
       {/* ── CTA ── */}
       <section className="relative py-20 text-white overflow-hidden">
-        <img src="/images/hero.jpg" alt="聯絡我們" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="/images/Contact.jpg" alt="聯絡我們" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
