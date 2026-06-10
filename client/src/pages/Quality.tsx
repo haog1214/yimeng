@@ -131,7 +131,7 @@ export default function Quality() {
             <Link href="/about" className="text-sm transition-colors duration-300 tracking-wide" style={navStyle()}>關於宜盟</Link>
             <Link href="/capability" className="text-sm transition-colors duration-300 tracking-wide" style={navStyle()}>代工能力與設備</Link>
             <Link href="/quality" className="text-sm transition-colors duration-300 tracking-wide" style={navStyle(true)}>服務與品質</Link>
-            <a href="/#聯絡我們" className="text-sm transition-colors duration-300 tracking-wide" style={navStyle()}>聯絡我們</a>
+            <Link href="/contact" className="text-sm transition-colors duration-300 tracking-wide" style={navStyle()}>聯絡我們</Link>
           </div>
         </div>
       </nav>
