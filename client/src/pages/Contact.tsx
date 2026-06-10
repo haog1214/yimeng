@@ -178,7 +178,7 @@ export default function Contact() {
                   loading="lazy"
                   allowFullScreen
                   referrerPolicy="no-referrer-when-downgrade"
-                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY&q=彰化縣和美鎮福北路106號"
+                  src="https://maps.google.com/maps?q=彰化縣和美鎮福北路106號&output=embed&hl=zh-TW"
                 />
               </div>
 
