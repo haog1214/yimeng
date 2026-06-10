@@ -175,7 +175,7 @@ export default function Capability() {
             </div>
             <div className="relative overflow-visible" style={{ paddingRight: "15px", paddingBottom: "15px" }}>
               <div className="absolute inset-0 rounded-xl" style={{ backgroundColor: RED, transform: "translateY(-3px)" }} />
-              <img src="/images/Injection molding-1.jpg" alt="射出成型"
+              <img src="/images/hero.jpg" alt="射出成型"
                 className="block w-full aspect-square object-cover rounded-xl"
                 style={{ transform: "translate(15px, -15px)", position: "relative", zIndex: 10 }} />
             </div>
@@ -287,7 +287,7 @@ export default function Capability() {
 
       {/* ── CTA ── */}
       <section className="relative py-20 text-white overflow-hidden">
-        <img src="/images/Contact.jpg" alt="聯絡我們" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="/images/hero3.jpg" alt="聯絡我們" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-start justify-between gap-10">
           <div className="max-w-md">

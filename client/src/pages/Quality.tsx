@@ -259,7 +259,7 @@ export default function Quality() {
 
       {/* ── CTA ── */}
       <section className="relative py-20 text-white overflow-hidden">
-        <img src="/images/Contact.jpg" alt="聯絡我們" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="/images/Product-11.jpg" alt="聯絡我們" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-start justify-between gap-10">
           <div className="max-w-md">
