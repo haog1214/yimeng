@@ -138,7 +138,7 @@ export default function Quality() {
 
       {/* ── Hero ── */}
       <div className="relative overflow-hidden" style={{ height: "520px" }}>
-        <img src="/images/contact-bg-04.jpg" alt="服務與品質" className="w-full h-full object-cover object-center" />
+        <img src="/images/stock-quality-hero.jpg" alt="服務與品質" className="w-full h-full object-cover object-center" />
         <div className="absolute inset-0"
           style={{ background: "linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 70%, transparent 100%)" }} />
         <div className="absolute inset-0 flex flex-col justify-end pb-20 pl-12 md:pl-24">
@@ -201,7 +201,7 @@ export default function Quality() {
             </div>
             <div className="relative overflow-visible" style={{ paddingRight: "15px", paddingBottom: "15px" }}>
               <div className="absolute inset-0 rounded-xl" style={{ backgroundColor: RED, transform: "translateY(-3px)" }} />
-              <img src="/images/Injection molding-1.jpg" alt="品質管控"
+              <img src="/images/stock-quality-section.jpg" alt="品質管控"
                 className="block w-full aspect-square object-cover rounded-xl"
                 style={{ transform: "translate(15px, -15px)", position: "relative", zIndex: 10 }} />
             </div>
@@ -259,7 +259,7 @@ export default function Quality() {
 
       {/* ── CTA ── */}
       <section className="relative py-20 text-white overflow-hidden">
-        <img src="/images/Product-11.jpg" alt="聯絡我們" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="/images/stock-contact-hero.jpg" alt="聯絡我們" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-start justify-between gap-10">
           <div className="max-w-md">

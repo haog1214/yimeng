@@ -67,7 +67,7 @@ export default function About() {
       {/* ── Hero ── */}
       <div className="relative overflow-hidden" style={{ height: "520px" }}>
         <img
-          src="/images/contact-bg.jpg"
+          src="/images/stock-about-hero.jpg"
           alt="關於宜盟"
           className="w-full h-full object-cover object-center"
         />
@@ -195,7 +195,7 @@ export default function About() {
 
       {/* ── CTA ── */}
       <section className="relative py-20 text-white overflow-hidden">
-        <img src="/images/contact-bg-03.jpg" alt="聯絡我們" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="/images/stock-about-cta.jpg" alt="聯絡我們" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
