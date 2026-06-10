@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 
 const RED = "#E63946";
@@ -23,7 +24,13 @@ function YiMengLogo({ white = false }: { white?: boolean }) {
   );
 }
 
-const HERO_SLIDES = ["/images/hero.jpg", "/images/hero2.jpg", "/images/hero3.jpg"];
+const HERO_SLIDES = [
+  { src: "/images/hero.jpg" },
+  { src: "/images/hero2.jpg" },
+  { src: "/images/hero3.jpg" },
+  { src: "/images/Product-1.jpg", label: "精密射出成型", subtitle: "汽車零配件・精工製造" },
+  { src: "/images/Product-3.jpg", label: "多元產品應用", subtitle: "門窗把手五金・專業代工" },
+];
 
 const PRODUCT_CATEGORIES = [
   { src: "/images/宜盟-04.png", label: "汽車零配件", product: "/images/Product-1.jpg" },
@@ -44,7 +51,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const t = setInterval(() => setSlide((s) => (s + 1) % HERO_SLIDES.length), 5000);
+    const t = setInterval(() => setSlide((s) => (s + 1) % HERO_SLIDES.length), 4000);
     return () => clearInterval(t);
   }, []);
 
@@ -59,7 +66,18 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <YiMengLogo white={!scrolled} />
           <div className="hidden md:flex items-center gap-10">
-            {["關於宜盟", "代工能力與設備", "服務與品質", "聯絡我們"].map((item) => (
+            <Link
+              href="/about"
+              className="text-sm transition-colors duration-300 tracking-wide"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                color: scrolled ? "#374151" : "#ffffff",
+                textShadow: scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)",
+              }}
+            >
+              關於宜盟
+            </Link>
+            {["代工能力與設備", "服務與品質", "聯絡我們"].map((item) => (
               <a
                 key={item}
                 href={`#${item}`}
@@ -79,15 +97,37 @@ export default function Home() {
 
       {/* ── Hero slider — fixed behind content, slides cross-fade ── */}
       <div className="fixed top-0 left-0 right-0 h-[420px] md:h-[500px] z-0 overflow-hidden">
-        {HERO_SLIDES.map((src, i) => (
-          <img
-            key={src}
-            src={src}
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000"
+        {HERO_SLIDES.map((s, i) => (
+          <div
+            key={s.src}
+            className="absolute inset-0 transition-opacity duration-1000"
             style={{ opacity: i === slide ? 1 : 0 }}
-          />
+          >
+            <img
+              src={s.src}
+              alt=""
+              aria-hidden="true"
+              className="w-full h-full object-cover object-center"
+            />
+            {s.label && (
+              <div className="absolute inset-0 flex flex-col items-center justify-center"
+                style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 100%)" }}
+              >
+                <p className="text-white text-xs md:text-sm tracking-[0.3em] mb-3 uppercase opacity-80">
+                  Yi Meng Products
+                </p>
+                <h2 className="text-white text-3xl md:text-5xl font-bold tracking-wide mb-4"
+                  style={{ textShadow: "0 2px 16px rgba(0,0,0,0.6)" }}
+                >
+                  {s.label}
+                </h2>
+                <div className="w-12 h-0.5 mb-4" style={{ backgroundColor: RED }} />
+                <p className="text-white text-base md:text-lg tracking-widest opacity-90">
+                  {s.subtitle}
+                </p>
+              </div>
+            )}
+          </div>
         ))}
         {/* Slide dots */}
         <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-3 z-10">
@@ -193,7 +233,7 @@ export default function Home() {
                       src={product}
                       alt={label}
                       className="block w-full h-auto object-cover rounded-xl"
-                      style={{ transform: 'translate(27px, -15px)', position: 'relative', zIndex: 10 }}
+                      style={{ transform: 'translate(9px, -15px)', position: 'relative', zIndex: 10 }}
                     />
                   </div>
                 </div>
@@ -256,8 +296,8 @@ export default function Home() {
             <div className="relative overflow-visible" style={{ paddingRight: '15px', paddingBottom: '15px' }}>
               <div className="absolute inset-0 rounded-xl" style={{ backgroundColor: '#d7554d', transform: 'translateY(-3px)' }} />
               <img
-                src="/images/Injection molding-2.jpg"
-                alt="超薄模壓成型"
+                src="/images/Product-11.jpg"
+                alt="多樣化射出產品"
                 className="block w-full aspect-square object-cover rounded-xl"
                 style={{ transform: 'translate(27px, -15px)', position: 'relative', zIndex: 10 }}
               />
@@ -267,10 +307,13 @@ export default function Home() {
                 className="font-bold text-gray-800 mb-5"
                 style={{ fontFamily: "'Poppins', sans-serif", fontSize: '35px' }}
               >
-                超薄模壓成型
+                電鍍與後製加工
               </h3>
+              <p className="text-gray-700 leading-relaxed mb-3" style={{ fontSize: '17px' }}>
+                我們提供射出成型後的完整後製加工服務，包含電鍍、烤漆、表面處理及組裝，讓客戶享有從原料到成品的一站式生產流程，大幅縮短交期、降低溝通成本。
+              </p>
               <p className="text-gray-700 leading-relaxed" style={{ fontSize: '17px' }}>
-                我們使用一台注射速度為 1000 毫米/秒的特製注塑機和融入我們獨特技術的精密模具，能夠穩定地批量生產厚度為 0.16 毫米的超薄注塑產品，其厚度與薄膜類似。
+                長年服務汽車零配件、門窗五金、連接器等高規格產業，對於外觀精度與表面品質均有嚴格管控，確保每一件成品皆符合客戶要求。
               </p>
             </div>
           </div>
