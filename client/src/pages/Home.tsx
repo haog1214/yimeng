@@ -74,12 +74,14 @@ export default function Home() {
               style={{ fontFamily: "'Inter', sans-serif", color: scrolled ? "#374151" : "#ffffff", textShadow: scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)" }}>
               代工能力與設備
             </Link>
-            {["服務與品質", "聯絡我們"].map((item) => (
-              <a key={item} href={`#${item}`} className="text-sm transition-colors duration-300 tracking-wide"
-                style={{ fontFamily: "'Inter', sans-serif", color: scrolled ? "#374151" : "#ffffff", textShadow: scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)" }}>
-                {item}
-              </a>
-            ))}
+            <Link href="/quality" className="text-sm transition-colors duration-300 tracking-wide"
+              style={{ fontFamily: "'Inter', sans-serif", color: scrolled ? "#374151" : "#ffffff", textShadow: scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)" }}>
+              服務與品質
+            </Link>
+            <a href="#聯絡我們" className="text-sm transition-colors duration-300 tracking-wide"
+              style={{ fontFamily: "'Inter', sans-serif", color: scrolled ? "#374151" : "#ffffff", textShadow: scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)" }}>
+              聯絡我們
+            </a>
           </div>
         </div>
       </nav>
