@@ -389,14 +389,6 @@ export default function Home() {
             {/* 右欄：完整聯絡資訊 */}
             <div className="flex flex-col gap-4 text-[15px]">
               <div className="flex items-center gap-3">
-                <span className="text-gray-400 w-5 text-center">👤</span>
-                <span className="text-white font-semibold">林岳憲</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="text-gray-400 w-5 text-center">📱</span>
-                <span className="text-white">0934-058-370</span>
-              </div>
-              <div className="flex items-center gap-3">
                 <span className="text-gray-400 w-5 text-center">☎️</span>
                 <span className="text-white">04-7355795</span>
               </div>
