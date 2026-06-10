@@ -66,28 +66,17 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <YiMengLogo white={!scrolled} />
           <div className="hidden md:flex items-center gap-10">
-            <Link
-              href="/about"
-              className="text-sm transition-colors duration-300 tracking-wide"
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                color: scrolled ? "#374151" : "#ffffff",
-                textShadow: scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)",
-              }}
-            >
+            <Link href="/about" className="text-sm transition-colors duration-300 tracking-wide"
+              style={{ fontFamily: "'Inter', sans-serif", color: scrolled ? "#374151" : "#ffffff", textShadow: scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)" }}>
               關於宜盟
             </Link>
-            {["代工能力與設備", "服務與品質", "聯絡我們"].map((item) => (
-              <a
-                key={item}
-                href={`#${item}`}
-                className="text-sm transition-colors duration-300 tracking-wide"
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  color: scrolled ? "#374151" : "#ffffff",
-                  textShadow: scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)",
-                }}
-              >
+            <Link href="/capability" className="text-sm transition-colors duration-300 tracking-wide"
+              style={{ fontFamily: "'Inter', sans-serif", color: scrolled ? "#374151" : "#ffffff", textShadow: scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)" }}>
+              代工能力與設備
+            </Link>
+            {["服務與品質", "聯絡我們"].map((item) => (
+              <a key={item} href={`#${item}`} className="text-sm transition-colors duration-300 tracking-wide"
+                style={{ fontFamily: "'Inter', sans-serif", color: scrolled ? "#374151" : "#ffffff", textShadow: scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)" }}>
                 {item}
               </a>
             ))}
