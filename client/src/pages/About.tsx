@@ -239,8 +239,9 @@ export default function About() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 mt-16 pt-16 border-t border-gray-100">
+          <div className="grid grid-cols-4 gap-8 mt-16 pt-16 border-t border-gray-100">
             {[
+              { num: "1993", label: "年創立" },
               { num: "30+", label: "年製造經驗" },
               { num: "5", label: "大產品應用領域" },
               { num: "一站式", label: "射出到後製服務" },
@@ -248,11 +249,31 @@ export default function About() {
               <div key={label} className="text-center">
                 <div
                   className="font-black mb-2"
-                  style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(36px, 4vw, 52px)", color: RED }}
+                  style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(28px, 3.5vw, 48px)", color: RED }}
                 >
                   {num}
                 </div>
                 <p className="text-gray-500 text-sm tracking-wide">{label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Four key features */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-14">
+            {[
+              { title: "多樣化材質", desc: "滿足不同製品需求" },
+              { title: "精密模具開發", desc: "確保產品精度" },
+              { title: "高效量產製造", desc: "交期穩定快速" },
+              { title: "客製化服務", desc: "專屬解決方案" },
+            ].map(({ title, desc }) => (
+              <div
+                key={title}
+                className="flex flex-col items-center text-center p-6 rounded-2xl"
+                style={{ background: "#fafafa", border: "1px solid #eee" }}
+              >
+                <div className="w-8 h-0.5 mb-4" style={{ backgroundColor: RED }} />
+                <h4 className="font-bold text-gray-800 text-[15px] mb-2">{title}</h4>
+                <p className="text-gray-500 text-sm">{desc}</p>
               </div>
             ))}
           </div>
@@ -480,12 +501,32 @@ export default function About() {
             </h2>
             <p className="text-white/80 text-[15px]">我們提供從射出模具到成品的全方位服務，歡迎來電洽詢。</p>
           </div>
-          <div className="flex flex-col items-end gap-4">
-            <p className="text-white/60 text-sm tracking-wide">電話諮詢</p>
-            <p className="text-white text-4xl font-bold tracking-widest">04-7355795</p>
+          <div className="flex flex-col gap-3 text-[15px]">
+            <div className="flex items-center gap-3">
+              <span className="text-white/50 w-5">👤</span>
+              <span className="text-white font-semibold">林岳憲</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-white/50 w-5">📱</span>
+              <span className="text-white">0934-058-370</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-white/50 w-5">☎️</span>
+              <span className="text-white">04-7355795</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-white/50 w-5">📠</span>
+              <span className="text-white">04-7369156</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-white/50 w-5">✉️</span>
+              <a href="mailto:sallyend0112@gmail.com" className="text-white hover:underline">
+                sallyend0112@gmail.com
+              </a>
+            </div>
             <Link
               href="/"
-              className="mt-2 px-8 py-3 rounded-full text-white text-sm font-semibold transition-opacity hover:opacity-90"
+              className="mt-4 px-8 py-3 rounded-full text-white text-sm font-semibold transition-opacity hover:opacity-90 self-start"
               style={{ backgroundColor: RED }}
             >
               回到首頁
@@ -496,11 +537,19 @@ export default function About() {
 
       {/* ── Footer ── */}
       <footer className="bg-gray-900 border-t border-gray-700 py-10">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <img src="/images/宜盟-12.png" alt="宜盟 Yi Meng" className="h-16 w-auto brightness-0 invert opacity-80" />
-          <div className="text-center md:text-right text-gray-400 text-sm space-y-1">
-            <p>508彰化縣和美鎮福北路106號</p>
-            <p>電話：04-7355795　08:30am - 18:00pm</p>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
+            <img src="/images/宜盟-12.png" alt="宜盟 Yi Meng" className="h-16 w-auto brightness-0 invert opacity-80" />
+            <div className="text-center md:text-right text-gray-400 text-sm space-y-1">
+              <p>508彰化縣和美鎮福北路106號</p>
+              <p>電話：04-7355795　傳真：04-7369156</p>
+              <p>信箱：sallyend0112@gmail.com　08:30 – 18:00</p>
+            </div>
+          </div>
+          <div className="border-t border-gray-700 pt-6 text-center">
+            <p className="text-gray-500 text-xs tracking-widest uppercase">
+              宜盟企業社 – 您最值得信賴的塑膠射出成型合作夥伴 ・ SINCE 1993
+            </p>
           </div>
         </div>
       </footer>

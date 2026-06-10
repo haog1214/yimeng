@@ -129,6 +129,15 @@ export default function Home() {
             )}
           </div>
         ))}
+        {/* SINCE 1993 badge */}
+        <div className="absolute top-24 right-6 z-10 flex flex-col items-center justify-center rounded-full border-2 border-yellow-400 bg-black/60 w-20 h-20 md:w-24 md:h-24 text-center">
+          <span className="text-yellow-400 text-[9px] font-bold tracking-widest uppercase leading-tight">專業塑膠射出</span>
+          <span className="text-yellow-400 text-[9px] font-bold tracking-widest uppercase leading-tight">製造專家</span>
+          <div className="w-10 h-px bg-yellow-400/50 my-1" />
+          <span className="text-white text-[10px] font-bold tracking-wider">SINCE</span>
+          <span className="text-yellow-400 text-sm font-black leading-tight">1993</span>
+        </div>
+
         {/* Slide dots */}
         <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-3 z-10">
           {HERO_SLIDES.map((_, i) => (
@@ -321,6 +330,27 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Five Pillars ── */}
+      <section className="relative z-10 bg-gray-900 py-14">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+            {[
+              { icon: "⚙️", title: "精密設備", desc: "先進射出成型機台，穩定生產高品質產品" },
+              { icon: "🔧", title: "專業技術", desc: "豐富經驗技術團隊，提供最佳解決方案" },
+              { icon: "✅", title: "品質管控", desc: "嚴格品質檢驗流程，確保產品品質穩定可靠" },
+              { icon: "🌱", title: "環保永續", desc: "採用環保材料，落實企業社會責任" },
+              { icon: "🚚", title: "準時交貨", desc: "高效生產管理，準時交付客戶需求" },
+            ].map(({ icon, title, desc }) => (
+              <div key={title} className="flex flex-col items-center text-center gap-3 p-4">
+                <span className="text-3xl">{icon}</span>
+                <h4 className="text-white font-bold text-[15px] tracking-wide">{title}</h4>
+                <p className="text-gray-400 text-xs leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Contact ── */}
       <section
         id="聯絡我們"
@@ -333,36 +363,60 @@ export default function Home() {
           className="w-full h-full object-cover absolute inset-0"
         />
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/60" />
 
         {/* Content overlaid on image */}
-        <div className="relative z-10 max-w-6xl mx-auto px-6 py-16">
-          <div className="flex flex-col md:flex-row items-start justify-between gap-8 md:gap-16">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-20">
+          <div className="flex flex-col md:flex-row items-start justify-between gap-12 md:gap-16">
 
-            {/* 左欄：標題 + 按鈕 */}
-            <div className="flex flex-col gap-10">
+            {/* 左欄：標題 + 說明 */}
+            <div className="flex flex-col gap-6 max-w-md">
               <h2
                 className="text-5xl"
                 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 900 }}
               >
                 聯絡我們
               </h2>
-              <Button
-                className="text-white font-medium px-7 py-5 rounded-full text-sm cursor-pointer self-start"
-                style={{ backgroundColor: RED, border: "none" }}
-              >
-                請透過表格與我們聯繫。
-              </Button>
+              <p className="text-gray-200 text-[15px] leading-relaxed">
+                我們提供從射出成型模具製造到成型零件加工和二次加工的全方位服務，旨在提升您產品的價值。如果您正在考慮生產您已開發的產品，請隨時與我們聯繫。
+              </p>
+              <div className="w-10 h-0.5" style={{ backgroundColor: RED }} />
+              <p className="text-white/70 text-sm leading-relaxed">
+                宜盟企業社 – 您最值得信賴的塑膠射出成型合作夥伴
+              </p>
             </div>
 
-            {/* 右欄：說明文字 + 電話，右側對齊 */}
-            <div className="flex flex-col items-end gap-6 text-right">
-              <p className="text-gray-200 text-[15px] leading-relaxed max-w-[538px]">
-                我們提供從射出成型模具製造到成型零件加工和二次加工的全方位服務。旨在提升您產品的價值。如果您正在考慮生產您已開發的產品，請隨時與我們聯繫。
-              </p>
-              <div className="flex items-center gap-4">
-                <p className="text-gray-300 text-sm tracking-wide">電話諮詢</p>
-                <p className="text-white text-3xl font-bold tracking-widest">04-7355795</p>
+            {/* 右欄：完整聯絡資訊 */}
+            <div className="flex flex-col gap-4 text-[15px]">
+              <div className="flex items-center gap-3">
+                <span className="text-gray-400 w-5 text-center">👤</span>
+                <span className="text-white font-semibold">林岳憲</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-gray-400 w-5 text-center">📱</span>
+                <span className="text-white">0934-058-370</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-gray-400 w-5 text-center">☎️</span>
+                <span className="text-white">04-7355795</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-gray-400 w-5 text-center">📠</span>
+                <span className="text-white">04-7369156</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-gray-400 w-5 text-center">📍</span>
+                <span className="text-white">彰化縣和美鎮福北路106號</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-gray-400 w-5 text-center">✉️</span>
+                <a href="mailto:sallyend0112@gmail.com" className="text-white hover:underline">
+                  sallyend0112@gmail.com
+                </a>
+              </div>
+              <div className="mt-2 flex items-center gap-4">
+                <p className="text-gray-300 text-sm tracking-wide">營業時間</p>
+                <p className="text-white font-medium">08:30 – 18:00</p>
               </div>
             </div>
 
@@ -372,17 +426,25 @@ export default function Home() {
 
       {/* ── Footer ── */}
       <footer className="relative z-10 bg-gray-900 border-t border-gray-700 py-10">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-          <YiMengLogo white />
-          <div className="text-right text-gray-400 leading-relaxed">
-            <p
-              className="text-white font-semibold tracking-wider mb-1"
-              style={{ fontFamily: "'Poppins', sans-serif", fontSize: '26px' }}
-            >
-              積極、誠信、品質第一
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-6">
+            <YiMengLogo white />
+            <div className="text-right text-gray-400 leading-relaxed">
+              <p
+                className="text-white font-semibold tracking-wider mb-1"
+                style={{ fontFamily: "'Poppins', sans-serif", fontSize: '26px' }}
+              >
+                積極、誠信、品質第一
+              </p>
+              <p className="text-sm" style={{ marginTop: '10px' }}>508彰化縣和美鎮福北路106號</p>
+              <p className="text-sm">電話：04-7355795　08:30 – 18:00</p>
+              <p className="text-sm">信箱：sallyend0112@gmail.com</p>
+            </div>
+          </div>
+          <div className="border-t border-gray-700 pt-6 text-center">
+            <p className="text-gray-500 text-xs tracking-widest uppercase">
+              宜盟企業社 – 您最值得信賴的塑膠射出成型合作夥伴 ・ YI MENG ENTERPRISE – YOUR MOST TRUSTED PARTNER IN PLASTIC INJECTION MOLDING SOLUTIONS ・ SINCE 1993
             </p>
-            <p className="text-sm" style={{ marginTop: '10px' }}>508彰化縣和美鎮福北路106號</p>
-            <p className="text-sm">08:30am~18:00pm</p>
           </div>
         </div>
       </footer>
