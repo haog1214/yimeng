@@ -25,12 +25,16 @@ function YiMengLogo({ white = false }: { white?: boolean }) {
   );
 }
 
-const HERO_SLIDES = [
+type SlideImg  = { src: string; label?: string; subtitle?: string };
+type Slide = SlideImg;
+
+const HERO_SLIDES: Slide[] = [
   { src: "/images/hero.jpg" },
   { src: "/images/hero2.jpg" },
   { src: "/images/hero3.jpg" },
-  { src: "/images/Product-1.jpg", label: "精密射出成型", subtitle: "汽車零配件・精工製造" },
-  { src: "/images/Product-3.jpg", label: "多元產品應用", subtitle: "門窗把手五金・專業代工" },
+  { src: "/images/hero-slide-4.png" },
+  { src: "/images/hero-slide-5.png" },
+  { src: "/images/hero-slide-6.png" },
 ];
 
 const PRODUCT_CATEGORIES = [
@@ -56,9 +60,10 @@ export default function Home() {
 
       {/* ── Hero slider — fixed behind content, slides cross-fade ── */}
       <div className="fixed top-0 left-0 right-0 h-[420px] md:h-[500px] z-0 overflow-hidden">
-        {HERO_SLIDES.map((s, i) => (
+        {HERO_SLIDES.map((s, i) => {
+          return (
           <div
-            key={s.src}
+            key={i}
             className="absolute inset-0 transition-opacity duration-1000"
             style={{ opacity: i === slide ? 1 : 0 }}
           >
@@ -68,26 +73,33 @@ export default function Home() {
               aria-hidden="true"
               className="w-full h-full object-cover object-center"
             />
-            {s.label && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center"
+            {(s.label || s.subtitle) && (
+              <div
+                className="absolute inset-0 flex flex-col items-center justify-center"
                 style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 100%)" }}
               >
                 <p className="text-white text-xs md:text-sm tracking-[0.3em] mb-3 uppercase opacity-80">
                   Yi Meng Products
                 </p>
-                <h2 className="text-white text-3xl md:text-5xl font-bold tracking-wide mb-4"
-                  style={{ textShadow: "0 2px 16px rgba(0,0,0,0.6)" }}
-                >
-                  {s.label}
-                </h2>
-                <div className="w-12 h-0.5 mb-4" style={{ backgroundColor: RED }} />
-                <p className="text-white text-base md:text-lg tracking-widest opacity-90">
-                  {s.subtitle}
-                </p>
+                {s.label && (
+                  <h2
+                    className="text-white text-3xl md:text-5xl font-bold tracking-wide mb-4"
+                    style={{ textShadow: "0 2px 16px rgba(0,0,0,0.6)" }}
+                  >
+                    {s.label}
+                  </h2>
+                )}
+                {(s.label || s.subtitle) && <div className="w-12 h-0.5 mb-4" style={{ backgroundColor: RED }} />}
+                {s.subtitle && (
+                  <p className="text-white text-base md:text-lg tracking-widest opacity-90">
+                    {s.subtitle}
+                  </p>
+                )}
               </div>
             )}
           </div>
-        ))}
+          );
+        })}
         {/* Slide dots */}
         <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-3 z-10">
           {HERO_SLIDES.map((_, i) => (
