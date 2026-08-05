@@ -1,4 +1,3 @@
-import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Reveal from "@/components/Reveal";
 
@@ -176,7 +175,7 @@ export default function Quality() {
             <div className="relative md:pr-[15px] md:pb-[15px]">
               <div className="hidden md:block absolute inset-0 rounded-xl" style={{ backgroundColor: RED, transform: "translateY(-3px)" }} />
               <img src="/images/stock-quality-section.jpg" alt="品質管控"
-                className="block w-full aspect-square object-cover rounded-xl md:translate-x-[15px] md:-translate-y-[15px] relative z-10" />
+                className="block w-full aspect-square object-cover rounded-xl md:translate-x-[19px] md:-translate-y-[15px] relative z-10" />
             </div>
             </Reveal>
           </div>
@@ -213,22 +212,42 @@ export default function Quality() {
             <h2 className="text-3xl md:text-4xl font-black text-gray-900" style={{ fontFamily: "'Poppins', sans-serif" }}>服務流程</h2>
             <div className="w-12 h-0.5 mx-auto mt-4" style={{ backgroundColor: RED }} />
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 md:gap-4">
-            {FLOW_STEPS.map(({ label, desc }, i) => (
-              <div key={label} className="relative flex flex-col items-center text-center">
-                {/* Connector line */}
-                {i < FLOW_STEPS.length - 1 && (
-                  <div className="hidden md:block absolute top-6 left-[calc(50%+24px)] right-[-calc(50%-24px)] h-px"
-                    style={{ backgroundColor: "#e5e7eb", width: "calc(100% - 48px)", left: "calc(50% + 24px)" }} />
-                )}
-                <div className="w-12 h-12 rounded-full border-2 flex items-center justify-center font-black text-sm mb-4 relative z-10 bg-white"
-                  style={{ borderColor: RED, color: RED, fontFamily: "'Poppins', sans-serif" }}>
-                  {String(i + 1).padStart(2, "0")}
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-x-4 gap-y-8 md:gap-4">
+            {FLOW_STEPS.flatMap(({ label, desc }, i) => {
+              const step = (
+                <div
+                  key={label}
+                  className={`relative flex flex-col items-center text-center ${i === 4 ? "col-span-2 md:col-span-1" : ""}`}
+                >
+                  {/* Desktop connector line (row of 5) */}
+                  {i < FLOW_STEPS.length - 1 && (
+                    <div className="hidden md:block absolute top-6 h-px"
+                      style={{ backgroundColor: "#e5e7eb", left: "calc(50% + 24px)", width: "calc(100% - 48px)" }} />
+                  )}
+                  {/* Mobile connector line (pairs of 2) */}
+                  {i % 2 === 0 && i + 1 < 4 && (
+                    <div className="md:hidden absolute top-6 h-px"
+                      style={{ backgroundColor: "#e5e7eb", left: "calc(50% + 24px)", width: "calc(100% - 48px)" }} />
+                  )}
+                  <div className="w-12 h-12 rounded-full border-2 flex items-center justify-center font-black text-sm mb-4 relative z-10 bg-white"
+                    style={{ borderColor: RED, color: RED, fontFamily: "'Poppins', sans-serif" }}>
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <h4 className="font-bold text-gray-800 text-[14px] mb-2">{label}</h4>
+                  <p className="text-gray-400 text-[12px] leading-relaxed">{desc}</p>
                 </div>
-                <h4 className="font-bold text-gray-800 text-[14px] mb-2">{label}</h4>
-                <p className="text-gray-400 text-[12px] leading-relaxed">{desc}</p>
-              </div>
-            ))}
+              );
+              // Mobile vertical connector between rows
+              if (i === 1 || i === 3) {
+                return [
+                  step,
+                  <div key={`${label}-connector`} className="md:hidden col-span-2 flex justify-center">
+                    <div className="w-px h-6" style={{ backgroundColor: "#e5e7eb" }} />
+                  </div>,
+                ];
+              }
+              return [step];
+            })}
           </div>
         </div>
       </section>
@@ -264,11 +283,6 @@ export default function Quality() {
                 sallyend0112@gmail.com
               </a>
             </div>
-            <Link href="/"
-              className="mt-4 px-8 py-3 rounded-full text-white text-sm font-semibold transition-opacity hover:opacity-90 self-start"
-              style={{ backgroundColor: RED }}>
-              回到首頁
-            </Link>
           </div>
         </div>
       </section>
@@ -281,7 +295,7 @@ export default function Quality() {
             <div className="text-center md:text-right text-gray-400 text-sm space-y-1">
               <p>508彰化縣和美鎮福北路106號</p>
               <p>電話：04-7355795　傳真：04-7369156</p>
-              <p>信箱：sallyend0112@gmail.com　08:30 – 18:00</p>
+              <p>信箱：sallyend0112@gmail.com　08:30 – 17:30</p>
             </div>
           </div>
           <div className="border-t border-gray-700 pt-6 text-center">

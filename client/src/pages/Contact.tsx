@@ -57,7 +57,7 @@ const CONTACT_ITEMS = [
   {
     title: "營業時間",
     en: "Business Hours",
-    value: "週一至週五　08:30 – 18:00",
+    value: "週一至週五　08:30 – 17:30",
     href: null,
     svg: (
       <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
@@ -188,7 +188,7 @@ export default function Contact() {
             <div className="text-center md:text-right text-gray-400 text-sm space-y-1">
               <p>508彰化縣和美鎮福北路106號</p>
               <p>電話：04-7355795　傳真：04-7369156</p>
-              <p>信箱：sallyend0112@gmail.com　08:30 – 18:00</p>
+              <p>信箱：sallyend0112@gmail.com　08:30 – 17:30</p>
             </div>
           </div>
           <div className="border-t border-gray-700 pt-6 text-center">

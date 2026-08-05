@@ -1,4 +1,3 @@
-import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Reveal from "@/components/Reveal";
 
@@ -110,12 +109,12 @@ export default function Capability() {
                 宜盟擁有多台不同噸數的射出成型機，可因應各類產品的尺寸、重量與精度需求，彈性排程生產，兼顧小批量試模與大批量量產。
               </p>
               <p className="text-gray-600 leading-relaxed mb-8 text-[16px]">
-                熟悉泛用塑膠與工程塑膠等多種材質，亦提供嵌件射出（Insert Molding）與薄壁射出服務，滿足複合結構與輕量化需求。
+                熟悉泛用塑膠與工程塑膠等多種材質，亦提供包射射出，滿足複合結構與輕量化需求。
               </p>
               <div className="flex flex-col gap-3">
                 {[
                   "多噸數機台，靈活對應各類產品尺寸",
-                  "嵌件射出、薄壁射出專業能力",
+                  "射出專業能力",
                   "工程塑膠 / 泛用塑膠 / 彈性體等多材質",
                   "少量多樣或大批量製造皆可配合",
                   "從試模到量產全程技術支援",
@@ -131,8 +130,8 @@ export default function Capability() {
             <Reveal direction="right" delay={100}>
             <div className="relative md:pr-[15px] md:pb-[15px]">
               <div className="hidden md:block absolute inset-0 rounded-xl" style={{ backgroundColor: RED, transform: "translateY(-3px)" }} />
-              <img src="/images/stock-cap-injection.jpg" alt="射出成型"
-                className="block w-full aspect-square object-cover rounded-xl md:translate-x-[15px] md:-translate-y-[15px] relative z-10" />
+              <img src="/images/Injection molding-1.jpg" alt="射出成型"
+                className="block w-full aspect-square object-cover rounded-xl md:translate-x-[19px] md:-translate-y-[15px] relative z-10" />
             </div>
             </Reveal>
           </div>
@@ -173,7 +172,7 @@ export default function Capability() {
             <div className="relative md:pr-[15px] md:pb-[15px]">
               <div className="hidden md:block absolute inset-0 rounded-xl" style={{ backgroundColor: RED, transform: "translateY(-3px)" }} />
               <img src="/images/stock-cap-postprocess.jpg" alt="後製加工"
-                className="block w-full aspect-square object-cover rounded-xl md:translate-x-[15px] md:-translate-y-[15px] relative z-10" />
+                className="block w-full aspect-square object-cover rounded-xl md:translate-x-[19px] md:-translate-y-[15px] relative z-10" />
             </div>
             </Reveal>
             <Reveal direction="right" delay={100}>
@@ -237,22 +236,9 @@ export default function Capability() {
             <div className="relative md:pr-[15px] md:pb-[15px]">
               <div className="hidden md:block absolute inset-0 rounded-xl" style={{ backgroundColor: RED, transform: "translateY(-3px)" }} />
               <img src="/images/stock-cap-equipment.jpg" alt="設備"
-                className="block w-full aspect-square object-cover rounded-xl md:translate-x-[15px] md:-translate-y-[15px] relative z-10" />
+                className="block w-full aspect-square object-cover rounded-xl md:translate-x-[19px] md:-translate-y-[15px] relative z-10" />
             </div>
             </Reveal>
-          </div>
-
-          {/* Factory banner */}
-          <div className="mt-16 relative rounded-2xl overflow-hidden flex items-center justify-center"
-            style={{ height: "180px", background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)" }}>
-            <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(230,57,70,0.04) 10px, rgba(230,57,70,0.04) 11px)" }} />
-            <div className="relative text-center text-white z-10">
-              <p className="text-xs font-bold tracking-widest uppercase mb-3 opacity-60">彰化和美・宜盟廠區 ・ SINCE 1993</p>
-              <p className="text-2xl md:text-3xl font-bold" style={{ fontFamily: "'Poppins', sans-serif" }}>
-                歡迎來廠參觀洽談
-              </p>
-              <div className="w-10 h-0.5 mx-auto mt-4" style={{ backgroundColor: RED }} />
-            </div>
           </div>
         </div>
       </section>
@@ -288,11 +274,6 @@ export default function Capability() {
                 sallyend0112@gmail.com
               </a>
             </div>
-            <Link href="/"
-              className="mt-4 px-8 py-3 rounded-full text-white text-sm font-semibold transition-opacity hover:opacity-90 self-start"
-              style={{ backgroundColor: RED }}>
-              回到首頁
-            </Link>
           </div>
         </div>
       </section>
@@ -305,7 +286,7 @@ export default function Capability() {
             <div className="text-center md:text-right text-gray-400 text-sm space-y-1">
               <p>508彰化縣和美鎮福北路106號</p>
               <p>電話：04-7355795　傳真：04-7369156</p>
-              <p>信箱：sallyend0112@gmail.com　08:30 – 18:00</p>
+              <p>信箱：sallyend0112@gmail.com　08:30 – 17:30</p>
             </div>
           </div>
           <div className="border-t border-gray-700 pt-6 text-center">

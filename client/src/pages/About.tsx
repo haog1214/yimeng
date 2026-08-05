@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Reveal from "@/components/Reveal";
-import { Link } from "wouter";
 
 const RED = "#E63946";
 
@@ -23,7 +22,7 @@ export default function About() {
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(30px, 5vw, 56px)", lineHeight: 1.1, textShadow: "0 2px 20px rgba(0,0,0,0.5)", marginBottom: "12px" }}>
             關於宜盟
           </h1>
-          <p className="text-white/80 text-sm md:text-lg" style={{ maxWidth: 420 }}>
+          <p className="text-white/80 text-sm md:text-lg whitespace-nowrap">
             深耕彰化和美三十餘年，專注塑膠射出成型與後製加工
           </p>
         </div>
@@ -121,10 +120,6 @@ export default function About() {
                 {href ? <a href={href} className="text-white hover:underline">{text}</a> : <span className="text-white">{text}</span>}
               </div>
             ))}
-            <Link href="/" className="mt-3 px-6 py-2.5 rounded-full text-white text-sm font-semibold transition-opacity hover:opacity-90 self-start"
-              style={{ backgroundColor: RED }}>
-              回到首頁
-            </Link>
           </div>
         </div>
       </section>
@@ -137,7 +132,7 @@ export default function About() {
             <div className="text-center md:text-right text-gray-400 text-xs md:text-sm space-y-1">
               <p>508彰化縣和美鎮福北路106號</p>
               <p>電話：04-7355795　傳真：04-7369156</p>
-              <p>信箱：sallyend0112@gmail.com　08:30 – 18:00</p>
+              <p>信箱：sallyend0112@gmail.com　08:30 – 17:30</p>
             </div>
           </div>
           <div className="border-t border-gray-700 pt-6 text-center">

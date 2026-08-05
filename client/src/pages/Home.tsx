@@ -47,6 +47,7 @@ const PRODUCT_CATEGORIES = [
 
 export default function Home() {
   const [slide, setSlide] = useState(0);
+  const [activePreview, setActivePreview] = useState<number | null>(null);
 
   useEffect(() => {
     const t = setInterval(() => setSlide((s) => (s + 1) % HERO_SLIDES.length), 4000);
@@ -196,16 +197,22 @@ export default function Home() {
             產品應用
           </h3>
           </Reveal>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-6 md:grid-cols-5 gap-4">
             {PRODUCT_CATEGORIES.map(({ src, label, product }, i) => (
-              <Reveal key={label} delay={i * 80}>
-              <div
-                className="group relative border border-gray-800 rounded-lg p-5 md:p-7 flex flex-col items-center gap-3 transition-shadow bg-white overflow-hidden md:overflow-visible hover:z-20 h-full"
+              <Reveal
+                key={label}
+                delay={i * 80}
+                className={`col-span-2 md:col-span-1 ${i === 3 ? "col-start-2 md:col-start-auto" : ""} ${i === 4 ? "col-start-4 md:col-start-auto" : ""}`}
               >
-                <img src={src} alt={label} className="w-[60px] h-[60px] object-contain transition-opacity duration-300 group-hover:opacity-0" />
-                <span className="text-sm font-medium text-gray-800 transition-opacity duration-300 group-hover:opacity-0">{label}</span>
+              <button
+                type="button"
+                onClick={() => setActivePreview(i)}
+                className="group relative border border-gray-800 rounded-lg p-5 md:p-7 flex flex-col items-center gap-3 transition-shadow bg-white overflow-hidden md:overflow-visible hover:z-20 h-full w-full"
+              >
+                <img src={src} alt={label} className="w-[60px] h-[60px] object-contain transition-opacity duration-300 md:group-hover:opacity-0" />
+                <span className="text-sm font-medium text-gray-800 transition-opacity duration-300 md:group-hover:opacity-0">{label}</span>
                 <div
-                  className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-visible"
+                  className="hidden md:block absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-visible"
                   style={{ left: '-8px', right: '-15px', paddingRight: '15px', paddingBottom: '15px', top: '50%', transform: 'translateY(calc(-50% + 8px))' }}
                 >
                   <div className="relative overflow-visible">
@@ -220,7 +227,7 @@ export default function Home() {
                     />
                   </div>
                 </div>
-              </div>
+              </button>
               </Reveal>
             ))}
           </div>
@@ -250,10 +257,10 @@ export default function Home() {
                 射出成型
               </h3>
               <p className="text-gray-700 leading-relaxed mb-3" style={{ fontSize: '17px' }}>
-                我們加工的材料種類繁多，包括超級工程塑膠樹脂、玻璃纖維樹脂、彈性體樹脂和通用樹脂。
+                我們加工的材料種類繁多，包括工程塑膠樹脂、玻璃纖維樹脂、彈性體樹脂和通用樹脂。
               </p>
               <p className="text-gray-700 leading-relaxed" style={{ fontSize: '17px' }}>
-                此外，我們也提供嵌件注塑和薄壁注塑服務。
+                此外，我們亦有配合的模具廠可協助開模與維護。
               </p>
             </div>
             </Reveal>
@@ -263,7 +270,7 @@ export default function Home() {
               <img
                 src="/images/Injection molding-1.jpg"
                 alt="射出成型"
-                className="block w-full aspect-square object-cover rounded-xl md:translate-x-[27px] md:-translate-y-[15px] relative z-10"
+                className="block w-full aspect-square object-cover rounded-xl md:translate-x-[31px] md:-translate-y-[15px] relative z-10"
               />
             </div>
             </Reveal>
@@ -288,7 +295,7 @@ export default function Home() {
               <img
                 src="/images/Product-11.jpg"
                 alt="多樣化射出產品"
-                className="block w-full aspect-square object-cover rounded-xl md:translate-x-[27px] md:-translate-y-[15px] relative z-10"
+                className="block w-full aspect-square object-cover rounded-xl md:translate-x-[31px] md:-translate-y-[15px] relative z-10"
               />
             </div>
             </Reveal>
@@ -316,7 +323,7 @@ export default function Home() {
       {/* ── Five Pillars ── */}
       <section className="relative z-10 bg-[#2c3444] py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-0 divide-x divide-white/10">
+          <div className="flex flex-wrap justify-center md:grid md:grid-cols-5 gap-0 md:divide-x divide-white/10">
             {[
               {
                 title: "精密設備",
@@ -374,7 +381,7 @@ export default function Home() {
                 ),
               },
             ].map(({ svg, title, desc }, i) => (
-              <Reveal key={title} delay={i * 80}>
+              <Reveal key={title} delay={i * 80} className="w-1/3 md:w-auto">
               <div className="group flex flex-col items-center text-center gap-4 px-3 md:px-8 py-8 md:py-12 hover:bg-white/5 transition-colors duration-300 h-full">
                 <div className="text-white/50 group-hover:text-[#E63946] transition-colors duration-300">
                   {svg}
@@ -428,7 +435,7 @@ export default function Home() {
             <div className="flex flex-col gap-4 text-[15px]">
               <div className="flex items-center gap-3">
                 <span className="text-gray-400 w-5 text-center">☎️</span>
-                <span className="text-white">04-7355795</span>
+                <a href="tel:04-7355795" className="text-white hover:underline">04-7355795</a>
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-gray-400 w-5 text-center">📠</span>
@@ -436,7 +443,14 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-gray-400 w-5 text-center">📍</span>
-                <span className="text-white">彰化縣和美鎮福北路106號</span>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=%E5%BD%B0%E5%8C%96%E7%B8%A3%E5%92%8C%E7%BE%8E%E9%8E%AE%E7%A6%8F%E5%8C%97%E8%B7%AF106%E8%99%9F"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:underline"
+                >
+                  彰化縣和美鎮福北路106號
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-gray-400 w-5 text-center">✉️</span>
@@ -446,7 +460,7 @@ export default function Home() {
               </div>
               <div className="mt-2 flex items-center gap-4">
                 <p className="text-gray-300 text-sm tracking-wide">營業時間</p>
-                <p className="text-white font-medium">08:30 – 18:00</p>
+                <p className="text-white font-medium">08:30 – 17:30</p>
               </div>
             </div>
 
@@ -467,7 +481,7 @@ export default function Home() {
                 積極、誠信、品質第一
               </p>
               <p className="text-sm" style={{ marginTop: '10px' }}>508彰化縣和美鎮福北路106號</p>
-              <p className="text-sm">電話：04-7355795　08:30 – 18:00</p>
+              <p className="text-sm">電話：04-7355795　08:30 – 17:30</p>
               <p className="text-sm">信箱：sallyend0112@gmail.com</p>
             </div>
           </div>
@@ -478,6 +492,33 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Mobile/click preview lightbox */}
+      {activePreview !== null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-6 overflow-y-auto"
+          onClick={() => setActivePreview(null)}
+        >
+          <div className="relative max-w-sm w-full m-auto" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              onClick={() => setActivePreview(null)}
+              className="absolute -top-10 right-0 text-white text-3xl leading-none"
+              aria-label="關閉"
+            >
+              ×
+            </button>
+            <img
+              src={PRODUCT_CATEGORIES[activePreview].product}
+              alt={PRODUCT_CATEGORIES[activePreview].label}
+              className="block w-full max-h-[70vh] object-contain rounded-xl bg-black"
+            />
+            <p className="text-white text-center mt-3 text-sm font-medium">
+              {PRODUCT_CATEGORIES[activePreview].label}
+            </p>
+          </div>
+        </div>
+      )}
 
     </div>
   );
